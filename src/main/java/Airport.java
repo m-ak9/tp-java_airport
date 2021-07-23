@@ -32,17 +32,23 @@ public class Airport {
         return result.flightIdentifier;
     }
 
-    public void approach((List<Airplane> airplanes) {
-        Distance rule = new Distance(5000);
-        for (Airplane airplane: airplanes) {
-            if (airplane.getCurrentPosition().distance(this.position).getKilometer() <= rule.getKilometer())
-                this.proximityAirplane.add(airplane);
-        }
+    public void approach(List<Airplane> airplanes) {
         List<Airplane> result = new ArrayList<>();
-        for (Airplane airplane: this.proximityAirplane) {
-            Airplane temp;
-            if (airplane.getCurrentPosition().distance(this.))
-
+        Distance rule = new Distance(5000);
+        for (Airplane airplane : airplanes) {
+            if (airplane.getCurrentPosition().distance(this.position).getKilometer() <= rule.getKilometer())
+                result.add(airplane);
+        }
+        // sort plane in proximity zone
+        for (int i = 0 ; i < result.size(); i++) {
+            Airplane temp = result.get(0);
+            for (Airplane airplane : result) {
+                if (airplane.getCurrentPosition().distance(this.position).getMeter() < temp.getCurrentPosition().distance(this.position).getMeter()) {
+                    temp = airplane;
+                }
+            }
+            this.proximityAirplane.add(temp);
+            result.remove(temp);
         }
     }
 
