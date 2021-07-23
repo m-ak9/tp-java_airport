@@ -9,6 +9,8 @@ import java.util.List;
 
 public class AirportTest {
 
+    LandingRules rules = new LandingRules();
+
     List<Airplane> airplanes;
 
     Airplane fighterJet;
@@ -88,18 +90,21 @@ public class AirportTest {
     void should_add_airbus_because_of_the_proximity_to_the_airport() {
 
         this.airplanes.add(this.airbus);
-        this.airport.approach(airplanes);
+        rules.approach(airport,airplanes);
         Assertions.assertEquals(this.airplanes.get(0).flightIdentifier.getValue(), this.airport.getProximityAirplane().get(0).flightIdentifier.getValue());
     }
 
     @Test
     void should_not_add_fighter_because_of_the_proximity_to_the_airport() {
         this.airplanes.add(this.fighterJet);
-        this.airport.approach(airplanes);
+
+
+        rules.approach(airport,airplanes);
 
         List<Airplane> emptyList = new ArrayList<>();
         Assertions.assertEquals(emptyList, this.airport.getProximityAirplane());
     }
+
 
 
 }
