@@ -1,12 +1,14 @@
+import Unit.Distance;
+import Unit.MinimumTime;
 import Utils.Utils;
 
 public class LandingStripe {
 
-    int length;
-    int minimumTime;
+    Distance length;
+    MinimumTime minimumTime;
 
-    public LandingStripe(int length, int minimumTime) {
-        this.length = Utils.checkZeroValue(length);
+    public LandingStripe(Distance length, MinimumTime minimumTime) {
+        this.length = length;
         this.minimumTime = minimumTime;
     }
 
