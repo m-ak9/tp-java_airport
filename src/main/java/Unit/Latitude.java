@@ -16,4 +16,8 @@ public class Latitude {
             this.latitude = latitude;
         }
     }
+
+    public int getLatitude() {
+        return latitude;
+    }
 }

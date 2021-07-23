@@ -17,11 +17,11 @@ public class Position {
     }
 
     public Distance calculateDistance(Position to) {
-            if ((this.latitude == to.latitude) && (this.longitude == to.longitude)) {
+            if ((this.latitude.getLatitude() == to.latitude.getLatitude()) && (this.longitude.getLongitude() == to.longitude.getLongitude())) {
                 return new Distance(0) ;
             }
             else {
-                double theta = lon1 - lon2;
+                double theta = this.longitude - to.longitude;
                 double dist = Math.sin(Math.toRadians(lat1)) * Math.sin(Math.toRadians(lat2)) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.cos(Math.toRadians(theta));
                 dist = Math.acos(dist);
                 dist = Math.toDegrees(dist);

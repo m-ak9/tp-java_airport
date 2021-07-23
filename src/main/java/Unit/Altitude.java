@@ -17,4 +17,8 @@ public class Altitude {
             this.altitude = altitude;
         }
     }
+
+    public int getAltitude() {
+        return altitude;
+    }
 }

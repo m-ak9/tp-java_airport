@@ -18,4 +18,8 @@ public class Longitude {
             this.longitude = longitude;
         }
     }
+
+    public int getLongitude() {
+        return longitude;
+    }
 }
