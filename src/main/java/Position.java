@@ -21,17 +21,12 @@ public class Position {
                 return new Distance(0) ;
             }
             else {
-                double theta = this.longitude - to.longitude;
-                double dist = Math.sin(Math.toRadians(lat1)) * Math.sin(Math.toRadians(lat2)) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.cos(Math.toRadians(theta));
+                double theta = this.longitude.getLongitude() - to.longitude.getLongitude();
+                double dist = Math.sin(Math.toRadians(this.latitude.getLatitude())) * Math.sin(Math.toRadians(to.latitude.getLatitude())) + Math.cos(Math.toRadians(this.latitude.getLatitude())) * Math.cos(Math.toRadians(to.latitude.getLatitude())) * Math.cos(Math.toRadians(theta));
                 dist = Math.acos(dist);
                 dist = Math.toDegrees(dist);
                 dist = dist * 60 * 1.1515;
-                if (unit.equals("K")) {
-                    dist = dist * 1.609344;
-                } else if (unit.equals("N")) {
-                    dist = dist * 0.8684;
-                }
-                return (dist);
+                return new Distance((int) Math.floor(dist));
             }
 
     }
