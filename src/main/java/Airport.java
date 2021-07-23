@@ -25,10 +25,10 @@ public class Airport {
         Airplane result = airplanes.get(0);
 
         for (Airplane airplane : airplanes) {
-            if (airplane.getFinishTime().isAfter(LocalDateTime.now()) && airplane.getFinishTime().isBefore(result.getFinishTime()))
+            if (airplane.getFinishTime().isAfter(LocalDateTime.now()) && airplane.getFinishTime().isBefore(result.getFinishTime())) {
                 result = airplane;
+            }
         }
-
         return result.flightIdentifier;
     }
 
