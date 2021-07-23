@@ -1,5 +1,7 @@
 package Unit;
 
+import Utils.Utils;
+
 public class Weight {
 
     int weight;
