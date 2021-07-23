@@ -105,6 +105,4 @@ public class AirportTest {
         Assertions.assertEquals(emptyList, this.airport.getProximityAirplane());
     }
 
-
-
 }
