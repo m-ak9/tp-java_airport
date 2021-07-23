@@ -16,7 +16,7 @@ public class Position {
 
     }
 
-    public Distance calculateDistance(Position to) {
+    public Distance distance(Position to) {
             if ((this.latitude.getLatitude() == to.latitude.getLatitude()) && (this.longitude.getLongitude() == to.longitude.getLongitude())) {
                 return new Distance(0) ;
             }
@@ -28,7 +28,6 @@ public class Position {
                 dist = dist * 60 * 1.1515;
                 return new Distance((int) Math.floor(dist));
             }
-
     }
 
     public Altitude getAltitude() {
